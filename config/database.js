@@ -12,3 +12,7 @@ connection.connect((err) => {
 	console.log('info', "Database connected successfully");
 	}
 });
+
+module.exports.execute = function(query, fields, callback) {
+	connection.execute(query, fields, callback);
+}
