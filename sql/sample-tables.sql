@@ -11,6 +11,7 @@ create table person (
 
 create table note (
     note_id INT NOT NULL AUTO_INCREMENT,
+    note_title VARCHAR(50),
     note VARCHAR(500),
     PRIMARY KEY (note_id)
 );

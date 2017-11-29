@@ -9,6 +9,7 @@
   "author": "Emmanuel Singletary",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.1"
