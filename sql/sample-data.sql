@@ -1,12 +1,12 @@
 -- Academic Programs
-insert into acad_program (program_desc, total_credits_req, notes) values ('Computer Science - BS', 120, 'This major requires a math minor.');
-insert into acad_program (program_desc, total_credits_req) values ('Computer Systems and Network Engineering - BS', 120);
-insert into acad_program (program_desc, total_credits_req) values ('Art - BA', 120);
-insert into acad_program (program_desc, total_credits_req) values ('Biology - BS', 120);
-insert into acad_program (program_desc, total_credits_req) values ('Business Administration - BA', 120);
-insert into acad_program (program_desc, total_credits_req) values ('Intercultural Studies - BA', 120);
-insert into acad_program (program_desc, total_credits_req) values ('Math - BS', 120);
-insert into acad_program (program_desc, total_credits_req) values ('Nursing - BSN', 120);
+insert into acad_program (program_desc, total_credits_req, notes) values ('Computer Science', 120, 'This major requires a math minor.');
+insert into acad_program (program_desc, total_credits_req) values ('Network Engineering', 120);
+insert into acad_program (program_desc, total_credits_req) values ('Art', 120);
+insert into acad_program (program_desc, total_credits_req) values ('Biology', 120);
+insert into acad_program (program_desc, total_credits_req) values ('Business Administration', 120);
+insert into acad_program (program_desc, total_credits_req) values ('Intercultural Studies', 120);
+insert into acad_program (program_desc, total_credits_req) values ('Math', 120);
+insert into acad_program (program_desc, total_credits_req) values ('Nursing', 120);
 
 -- Clubs and their presidents
 insert into club (club_desc, club_advisor_id, club_president_id) values ('Math Club', 338, 60);
@@ -15,7 +15,7 @@ insert into club (club_desc, club_advisor_id, club_president_id) values ('Connec
 insert into student_clubs(person_id, club_id) values (126, 2);
 insert into club (club_desc, club_advisor_id, club_president_id) values ('Biology Club', 937, 208);
 insert into student_clubs(person_id, club_id) values (208, 3);
-insert into club (club_desc, club_advisor_id, club_president_id) values ('L.E.A.P. Dance', 278, 205);
+insert into club (club_desc, club_advisor_id, club_president_id) values ('L.E.A.P.', 278, 205);
 insert into student_clubs(person_id, club_id) values (205, 4);
 insert into club (club_desc, club_advisor_id, club_president_id) values ('Creative Writing Club', 252, 693);
 insert into student_clubs(person_id, club_id) values (693, 5);
@@ -294,14 +294,14 @@ insert into student_clubs(person_id, club_id) values(640, 10);
 insert into student_clubs(person_id, club_id) values(642, 10);
 
 -- Freshmen CS BS
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(1, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(2, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(3, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(5, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(6, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(7, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(8, 1, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(9, 1, '2017-8-28', '2021-5-01', 0); 
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(1, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(2, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(3, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(5, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(6, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(7, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(8, 1, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(9, 1, '2017-8-28', '2021-5-01', 0);
 insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(10, 1, '2017-8-28', '2021-5-01', 0);
 insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(11, 1, '2017-8-28', '2021-5-01', 0);
 insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(12, 1, '2017-8-28', '2021-5-01', 0);
@@ -360,36 +360,36 @@ insert into student_acad_programs(student_id, program_id, start_date, end_date, 
 insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(85, 2, '2017-8-28', '2021-5-01', 0);
 
 -- Freshman Art BA
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(87, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(88, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(91, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(92, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(93, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(94, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(96, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(97, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(98, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(99, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(101, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(102, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(103, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(104, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(105, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(107, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(110, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(112, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(113, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(114, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(116, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(118, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(119, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(120, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(121, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(122, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(123, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(124, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(126, 3, '2017-8-28', '2021-5-01', 0); 
-insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(127, 3, '2017-8-28', '2021-5-01', 0); 
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(87, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(88, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(91, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(92, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(93, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(94, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(96, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(97, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(98, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(99, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(101, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(102, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(103, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(104, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(105, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(107, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(110, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(112, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(113, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(114, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(116, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(118, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(119, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(120, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(121, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(122, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(123, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(124, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(126, 3, '2017-8-28', '2021-5-01', 0);
+insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(127, 3, '2017-8-28', '2021-5-01', 0);
 insert into student_acad_programs(student_id, program_id, start_date, end_date, credits_earned) values(128, 3, '2017-8-28', '2021-5-01', 0);
 
 -- Freshman BIO BS

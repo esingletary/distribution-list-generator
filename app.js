@@ -20,18 +20,56 @@ app.use(bodyparser.json());
 app.get('/', (req, res) => res.render('index'));
 
 // Reports index
-app.get('/reports', (req, res) => res.render('reports'));
+app.get('/reports', (req, res) => res.render('reports/index'));
 
 // Reports
-app.get('/reports/students', (req, res) => res.render('reports/students')); // All students
-app.get('/reports/faculty', (req, res) => res.render('reports/faculty'));// All faculty
-app.get('/reports/staff', (req, res) => res.render('reports/staff'));// All staff
+app.get('/reports/students', (req, res) => {
+  database.execQuery(`SELECT * FROM person WHERE type = 'STU'`)
+  .then((results) => {
+    res.render('reports/students',{
+      results: results
+    })
+  })
+  .catch((err) => {
+    res.render('reports/students',{
+      err: err
+    })
+  })
+}); // All students
+
+app.get('/reports/faculty', (req, res) => {
+  database.execQuery(`SELECT * FROM person WHERE type = 'FAC'`)
+  .then((results) => {
+    res.render('reports/faculty',{
+      results: results
+    })
+  })
+  .catch((err) => {
+    res.render('reports/faculty',{
+      err: err
+    })
+  })
+});// All faculty
+
+app.get('/reports/staff', (req, res) => {
+  database.execQuery(`SELECT * FROM person WHERE type = 'STA'`)
+  .then((results) => {
+    res.render('reports/staff',{
+      results: results
+    })
+  })
+  .catch((err) => {
+    res.render('reports/staff',{
+      err: err
+    })
+  })
+});
 
 // Lists
 app.get('/lists', (req, res) => res.render('lists'));
 
 // Notes
-app.get('/notes', (req, res) => res.render('notes'));
+app.get('/notes', (req, res) => res.render('notes/index'));
 app.get('/notes/add', (req, res) => res.render('notes/add'));
 
 app.post('/notes', (req, res) => {
@@ -44,7 +82,7 @@ app.post('/notes', (req, res) => {
   notes.addNote(newNote)
   .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
   .catch((err) => console.log(err));
-  res.send(newNote);
+  res.redirect('/notes');
 });
 
 const port = process.env.PORT || 5000;
