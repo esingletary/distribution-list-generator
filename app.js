@@ -3,6 +3,8 @@ const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
 const database = require('./config/database');
 
+const notes = require('./models/notes');
+
 // Setup express for middleware
 const app = express();
 
@@ -33,34 +35,17 @@ app.get('/notes', (req, res) => res.render('notes'));
 app.get('/notes/add', (req, res) => res.render('notes/add'));
 
 app.post('/notes', (req, res) => {
-  let errors = [];
-  if (!req.body.personId) {
-    errors.push({text: 'Please add a person ID'});
+  const newNote = {
+    noterId: req.body.noterId,
+    personId: req.body.personId,
+    title: req.body.title,
+    note: req.body.note
   }
-  if (!req.body.title) {
-    errors.push({text: 'Please add a title'});
-  }
-  if (!req.body.note) {
-    errors.push({text: 'Please add a note'});
-  }
-  if (errors.length > 0) {
-    res.render('notes/add', {
-      errors: errors,
-      noterId: req.body.noterId,
-      personId: req.body.personId,
-      title: req.body.title,
-      note: req.body.note
-    });
-  } else {
-    const newNote = {
-      noterId: req.body.noterId,
-      personId: req.body.personId,
-      title: req.body.title,
-      note: req.body.note
-    }
-    res.send(newNote);
-  }
-})
+  notes.addNote(newNote)
+  .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
+  .catch((err) => console.log(err));
+  res.send(newNote);
+});
 
 const port = process.env.PORT || 5000;
 
