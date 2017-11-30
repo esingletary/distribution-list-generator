@@ -1,1 +1,21 @@
 <h1>Lists</h1>
+<a href="/lists/add" class="btn btn-primary mb-3">New List</a>
+<table class="table table-bordered">
+  <tbody>
+    <thead>
+      <th>Name</th>
+      <th>Owner</th>
+      <th>Members</th>
+      <th>View</th>
+    </thead>
+    {{#each results}}
+      <tr>
+        <td>{{list_desc}}</td>
+        <td>{{owner}}</td>
+        <td>{{member_count}}</td>
+        <td><a href="/lists/view/{{list_id}}" class="btn btn-primary">View List</a></td>
+      </tr>
+    {{else}}
+    {{/each}}
+  </tbody>
+</table>
