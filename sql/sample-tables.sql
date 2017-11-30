@@ -1,3 +1,5 @@
+create database dlg_prod character set UTF8mb4 collate utf8mb4_bin;
+
 create table person (
 	id INT NOT NULL AUTO_INCREMENT,
 	first_name VARCHAR(50),

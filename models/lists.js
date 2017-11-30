@@ -50,6 +50,24 @@ exports.getLists = function() {
   })
 }
 
+// Get the details of one list in particular
+exports.getListDetails = function(listId) {
+  return new Promise((resolve, reject) => {
+    database.execQueryWithParams(`
+      SELECT custom_list.list_id AS list_id, list_desc, list_owner, person_id
+      FROM custom_list
+      JOIN person_list ON custom_list.list_id = person_list.list_id
+      WHERE custom_list.list_id = ?
+    `, listId)
+    .then((results) => {
+        return resolve(results);
+      })
+    .catch((err) => {
+      return reject(err);
+    })
+  })
+}
+
 // Add a person to a specified custom list
 exports.addToList = function(personId, listId) {
   return new Promise((resolve, reject) => {

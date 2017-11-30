@@ -1,19 +1,39 @@
 <h1>{{title}}</h1>
-<a href="/lists" class="btn btn-primary mb-3">Back</a>
-<table class="table table-bordered">
+<a href="/lists" class="btn btn-primary mb-2">Back</a>
+<a href="/lists/edit/{{list_id}}" class="btn btn-primary mb-2">Edit Name</a>
+<form action="/notes/delete/{{notes_id}}?_method=DELETE" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit" class="btn btn-danger mb-2">Delete List</button>
+</form>
+<table class="table">
   <tbody>
     <thead>
       <th>ID</th>
       <th>Name</th>
       <th>Email Address</th>
+      <th>Actions</th>
     </thead>
     {{#each results}}
       <tr>
         <td>{{id}}</td>
         <td>{{first_name}} {{middle_name}} {{last_name}}</td>
         <td>{{email_address}}</td>
+        <td>
+          <form action="/notes/delete/{{notes_id}}?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger mb-2">Delete</button>
+          </form>
+        </td>
       </tr>
     {{else}}
     {{/each}}
   </tbody>
 </table>
+<form action="/lists/view/{{list_id}}" method="post">
+  <div class="form-group">
+    <label for="listMembers">Add new member</label>
+    <input type="text" class="form-control" name="listMembers">
+    <small id="listMembersHelp" class="form-text text-muted">Comma separated IDs please</small>
+  </div>
+  <button type="submit" class="btn btn-primary mb-3">Add</button>
+</form>

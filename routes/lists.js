@@ -3,6 +3,7 @@ const router = express.Router();
 
 const lists = require('../models/lists');
 
+// List of all lists
 router.get('/', (req, res) => {
   lists.getLists()
   .then((results) => {
@@ -17,8 +18,10 @@ router.get('/', (req, res) => {
   })
 });
 
+// Show the add page
 router.get('/add', (req, res) => res.render('lists/add'));
 
+// Add a list in the database and redirect to it
 router.post('/add', (req, res) => {
   let members = req.body.listMembers.split(',').map((item) => {return item.trim()});
   let newList = {
@@ -42,16 +45,49 @@ router.post('/add', (req, res) => {
   })
 });
 
+// View a particular list and its members
 router.get('/view/:id', (req, res) => {
   lists.getMembersOfList(req.params.id)
   .then((results) => {
       res.render('lists/view', {
         title: results[0].list_desc,
+        list_id: req.params.id,
         results: results
       })
   })
 });
 
-router.get('/edit/:id', (req, res) => res.render('lists/edit'));
+// Add new members to the list being viewed
+router.post('/view/:id', (req, res) => {
+  let members = req.body.listMembers.split(',').map((item) => {return item.trim()});
+  let membersArray = [];
+  let listId = req.params.id;
+  members.forEach((member) => {
+    membersArray.push(lists.addToList(member, listId));
+  })
+  Promise.all(membersArray)
+  .then(() => {
+    res.redirect(`/lists/view/${listId}`);
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+})
+
+// Show the list edit screen
+router.get('/edit/:id', (req, res) => {
+  lists.getListDetails(req.params.id)
+  .then((results) => {
+    let list_details = results[0];
+    res.render('lists/edit', {
+      results: list_details
+    })
+  })
+  .catch((err) => {
+    res.render('lists/edit', {
+      err: err
+    })
+  })
+});
 
 module.exports = router;
