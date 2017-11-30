@@ -4,9 +4,13 @@ const database = require('../config/database');
 
 const notes = require('../models/notes');
 
+// Note display
 router.get('/', (req, res) => res.render('notes/index'));
+
+// New note
 router.get('/add', (req, res) => res.render('notes/add'));
 
+// Create new note in database
 router.post('/', (req, res) => {
   const newNote = {
     noterId: req.body.noterId,

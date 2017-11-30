@@ -1,11 +1,11 @@
 <div class="card-deck mb-4">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">All Students</h4>
+      <h4 class="card-title">Students</h4>
       <p class="card-text">This report shows a list of all students in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
-      <form action="/reports" method="post">
+      <form action="/reports/students" method="post">
         <div class="form-group">
           <select class="form-control" name="student_select">
             <option value="*">All Classes</option>
@@ -21,7 +21,7 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">All Staff</h4>
+      <h4 class="card-title">Staff Members</h4>
       <p class="card-text">This report shows a list of all staff members in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
@@ -30,7 +30,7 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">All Faculty</h4>
+      <h4 class="card-title">Faculty Members</h4>
       <p class="card-text">This report shows a list of all faculty members in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
@@ -45,9 +45,10 @@
       <p class="card-text">This report shows a list of all students in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
-      <form action="/reports" method="post">
+      <form action="/reports/clubs" method="post">
         <div class="form-group">
           <select class="form-control" name="club_select">
+            <option value="*">All Clubs</option>
             <option value="1">Math Club</option>
             <option value="2">Connection</option>
             <option value="3">Biology Club</option>
@@ -70,9 +71,10 @@
       <p class="card-text">This report shows a list of all staff members in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
-      <form action="/reports" method="post">
+      <form action="/reports/sports" method="post">
         <div class="form-group">
           <select class="form-control" name="sport_select">
+            <option value="*">All Sports</option>
             <option value="1">Basketball</option>
             <option value="2">Baseball</option>
             <option value="3">Golf</option>
@@ -92,9 +94,10 @@
       <p class="card-text">This report shows a list of all faculty members in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
-      <form action="/reports" method="post">
+      <form action="/reports/acad" method="post">
         <div class="form-group">
           <select class="form-control" name="acad_select">
+            <option value="*">All Programs</option>
             <option value="1">Computer Science</option>
             <option value="2">Network Engineering</option>
             <option value="3">Art</option>

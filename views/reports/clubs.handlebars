@@ -2,16 +2,20 @@
 <table class="table table-bordered">
   <tbody>
     <thead>
+      {{#if allclubs}}
+      <th>Club</th>
+      {{/if}}
       <th>ID</th>
       <th>Name</th>
-      <th>Social security number</th>
       <th>Email address</th>
     </thead>
     {{#each results}}
       <tr>
+        {{#if ../allclubs}}
+        <td>{{club_desc}}</td>
+        {{/if}}
         <td>{{id}}</td>
         <td>{{first_name}} {{middle_name}} {{last_name}}</td>
-        <td>{{ssn}}</td>
         <td>{{email_address}}</td>
       </tr>
     {{else}}
