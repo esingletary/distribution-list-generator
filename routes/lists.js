@@ -90,4 +90,19 @@ router.get('/edit/:id', (req, res) => {
   })
 });
 
+// Edits the list's name
+router.put('/edit/:id', (req, res) => {
+  let listName = req.body.listName;
+  let listId = req.params.id;
+  lists.editListDetails(listId, listName)
+  .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
+  .catch((err) => console.log(err));
+  res.redirect(`/lists/view/${listId}`);
+});
+
+router.delete('/delete/:noteid/:personid', (req, res) => {
+  console.log(req.params);
+  res.send(req.params);
+})
+
 module.exports = router;

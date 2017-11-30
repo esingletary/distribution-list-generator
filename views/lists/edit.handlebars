@@ -1,7 +1,8 @@
 <a href="/lists/view/{{results.list_id}}" class="btn btn-primary mb-3">Back</a>
 <div class="card card-body">
   <h3>Edit Name</h3>
-  <form action="/lists/add" method="post">
+  <form action="/lists/edit/{{results.list_id}}?_method=PUT" method="post">
+  <input type="hidden" name="_method" value="PUT">
     <div class="form-group">
       <label for="listName">List Name</label>
       <input type="text" class="form-control" name="listName" maxlength="50" value="{{results.list_desc}}" required>

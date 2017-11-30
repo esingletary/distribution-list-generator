@@ -68,6 +68,21 @@ exports.getListDetails = function(listId) {
   })
 }
 
+exports.editListDetails = function(listId, listName) {
+  return new Promise((resolve, reject) => {
+    database.execQueryWithParams(`
+      UPDATE custom_list SET list_desc = ?
+      WHERE list_id = ?
+    `, [listName, listId])
+    .then((results) => {
+        return resolve(results);
+      })
+    .catch((err) => {
+      return reject(err);
+    })
+  })
+}
+
 // Add a person to a specified custom list
 exports.addToList = function(personId, listId) {
   return new Promise((resolve, reject) => {

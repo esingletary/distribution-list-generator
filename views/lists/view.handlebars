@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
 <a href="/lists" class="btn btn-primary mb-2">Back</a>
 <a href="/lists/edit/{{list_id}}" class="btn btn-primary mb-2">Edit Name</a>
-<form action="/notes/delete/{{notes_id}}?_method=DELETE" method="post">
+<form action="/lists/delete/{{list_id}}?_method=DELETE" method="post">
   <input type="hidden" name="_method" value="DELETE">
   <button type="submit" class="btn btn-danger mb-2">Delete List</button>
 </form>
@@ -19,7 +19,7 @@
         <td>{{first_name}} {{middle_name}} {{last_name}}</td>
         <td>{{email_address}}</td>
         <td>
-          <form action="/notes/delete/{{notes_id}}?_method=DELETE" method="post">
+          <form action="/lists/delete/{{../list_id}}/{{id}}?_method=DELETE" method="post">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit" class="btn btn-danger mb-2">Delete</button>
           </form>
