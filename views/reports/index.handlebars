@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Students</h4>
-      <p class="card-text">This report shows a list of all students in the system. It includes full name, social security number, and email address.</p>
+      <p class="card-text">This report shows a list of students in the system. You can specify with the form below which classes of students you want to select, or all students.</p>
     </div>
     <div class="card-footer">
       <form action="/reports/students" method="post">
@@ -25,7 +25,7 @@
       <p class="card-text">This report shows a list of all staff members in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
-      <a href="/reports/staff" class="btn btn-info btn-block">View</a>
+      <button onclick="window.location='/reports/staff';" class="btn btn-info btn-block">View</button>
     </div>
   </div>
   <div class="card">
@@ -34,7 +34,7 @@
       <p class="card-text">This report shows a list of all faculty members in the system. It includes full name, social security number, and email address.</p>
     </div>
     <div class="card-footer">
-      <a href="/reports/faculty" class="btn btn-info btn-block">View</a>
+      <button onclick="window.location='/reports/faculty';" class="btn btn-info btn-block">View</button>
     </div>
   </div>
 </div>
@@ -42,7 +42,7 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Clubs</h4>
-      <p class="card-text">This report shows a list of all students in the system. It includes full name, social security number, and email address.</p>
+      <p class="card-text">This report shows a list of clubs and club members. You can specify with the form below which club you want to select, or all clubs.</p>
     </div>
     <div class="card-footer">
       <form action="/reports/clubs" method="post">
@@ -68,7 +68,7 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Sports Teams</h4>
-      <p class="card-text">This report shows a list of all staff members in the system. It includes full name, social security number, and email address.</p>
+      <p class="card-text">This report shows a list of sports and team members. You can specify with the form below which team you want to select, or all teams.</p>
     </div>
     <div class="card-footer">
       <form action="/reports/sports" method="post">
@@ -91,7 +91,7 @@
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Academic Programs</h4>
-      <p class="card-text">This report shows a list of all faculty members in the system. It includes full name, social security number, and email address.</p>
+      <p class="card-text">This report shows a list of academic programs and students. You can specify with the form below which program you want to select, or all programs.</p>
     </div>
     <div class="card-footer">
       <form action="/reports/acad" method="post">
