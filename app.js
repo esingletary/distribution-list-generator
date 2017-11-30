@@ -1,6 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
+
 const database = require('./config/database');
 
 // Route imports
@@ -17,8 +19,11 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // Body Parser
-app.use(bodyparser.urlencoded({extended: false}));
-app.use(bodyparser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+// Method Override
+app.use(methodOverride('_method'));
 
 // Setup our routes
 app.use('/reports', reports);

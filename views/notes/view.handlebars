@@ -1,0 +1,17 @@
+<h1>Notes for {{title}}</h1>
+<a href="/notes" class="btn btn-primary mb-3">Back</a>
+{{#each results}}
+<div class="card mb-3">
+  <div class="card-body">
+    <h4 class="card-title">{{note_title}}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Written by {{noter}}</h6>
+    <p class="card-text">{{note}}</p>
+    <a href="/notes/edit/{{notes_id}}" class="btn btn-primary mb-2">Edit</a>
+    <form action="/notes/delete/{{notes_id}}?_method=DELETE" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>
+{{else}}
+{{/each}}
