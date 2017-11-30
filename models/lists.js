@@ -16,7 +16,7 @@ exports.addList = function(newList) {
 // Delete a custom list along with all members
 exports.deleteList = function(listId) {
   return new Promise((resolve, reject) => {
-    database.execQueryWithParams(`DELETE FROM person_list WHERE list_id = ?)`, listId)
+    database.execQueryWithParams(`DELETE FROM person_list WHERE list_id = ?`, listId)
     .then((results) => {
       database.execQueryWithParams(`DELETE FROM custom_list WHERE list_id = ?`, listId)
       .then((results) => {

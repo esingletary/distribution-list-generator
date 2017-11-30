@@ -72,7 +72,15 @@ router.post('/view/:id', (req, res) => {
   .catch((err) => {
     console.log(err);
   })
-})
+});
+
+// Delete a person from a list
+router.delete('/delete/:listid/:personid', (req, res) => {
+  lists.deleteFromList(req.params.personid, req.params.listid)
+  .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
+  .catch((err) => console.log(err));
+  res.redirect(`/lists/view/${req.params.listid}`);
+});
 
 // Show the list edit screen
 router.get('/edit/:id', (req, res) => {
@@ -100,9 +108,12 @@ router.put('/edit/:id', (req, res) => {
   res.redirect(`/lists/view/${listId}`);
 });
 
-router.delete('/delete/:noteid/:personid', (req, res) => {
-  console.log(req.params);
-  res.send(req.params);
+// Delete list
+router.delete('/delete/:id', (req, res) => {
+  lists.deleteList(req.params.id)
+  .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
+  .catch((err) => console.log(err));
+  res.redirect(`/lists`);
 })
 
 module.exports = router;
