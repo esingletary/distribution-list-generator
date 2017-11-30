@@ -48,7 +48,7 @@ router.post('/add', (req, res) => {
   notes.addNote(newNote)
   .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
   .catch((err) => console.log(err));
-  res.redirect('/notes');
+  res.redirect(`/notes/view/${newNote.personId}`);
 });
 
 // Edit a note
@@ -77,7 +77,7 @@ router.put('/edit/:id', (req, res) => {
   notes.editNote(editedNote)
   .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
   .catch((err) => console.log(err));
-  res.redirect('/notes');
+  res.redirect(`/notes/view/${req.body.personId}`);
 });
 
 // Delete note

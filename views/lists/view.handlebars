@@ -1,1 +1,19 @@
-<h1>View</h1>
+<h1>{{title}}</h1>
+<a href="/lists" class="btn btn-primary mb-3">Back</a>
+<table class="table table-bordered">
+  <tbody>
+    <thead>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email Address</th>
+    </thead>
+    {{#each results}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{first_name}} {{middle_name}} {{last_name}}</td>
+        <td>{{email_address}}</td>
+      </tr>
+    {{else}}
+    {{/each}}
+  </tbody>
+</table>

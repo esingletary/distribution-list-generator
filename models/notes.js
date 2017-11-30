@@ -65,8 +65,8 @@ exports.addNote = function(newNote) {
     database.execQueryWithParams(`INSERT INTO note(note_title, note) VALUES(?, ?)`, [newNote.title, newNote.note])
     .then((results) => {
       database.execQueryWithParams(`INSERT INTO person_notes(notes_id, person_id, noter_id) VALUES(${results.insertId}, ?, ?)`, [newNote.personId, newNote.noterId])
-      .then((result) => {
-        return resolve(result);
+      .then((results) => {
+        return resolve(results);
       })
     })
     .catch((err) => {
@@ -97,8 +97,8 @@ exports.deleteNote = function(noteId) {
     database.execQueryWithParams(`DELETE FROM person_notes WHERE notes_id = ?`, noteId)
     .then((results) => {
       database.execQueryWithParams(`DELETE FROM note WHERE note_id = ?`, noteId)
-      .then((result) => {
-        return resolve(result);
+      .then((results) => {
+        return resolve(results);
       })
     })
     .catch((err) => {

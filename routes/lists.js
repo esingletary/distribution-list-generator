@@ -19,7 +19,38 @@ router.get('/', (req, res) => {
 
 router.get('/add', (req, res) => res.render('lists/add'));
 
-router.get('/view/:id', (req, res) => res.render('lists/view'));
+router.post('/add', (req, res) => {
+  let members = req.body.listMembers.split(',').map((item) => {return item.trim()});
+  let newList = {
+    desc: req.body.listName,
+    personId: req.body.ownerId
+  }
+  lists.addList(newList)
+  .then((result) => {
+    let listId = result.insertId;
+    let membersArray = [];
+    members.forEach((member) => {
+      membersArray.push(lists.addToList(member, listId));
+    })
+    Promise.all(membersArray)
+    .then(() => {
+      res.redirect(`/lists/view/${listId}`);
+    })
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+});
+
+router.get('/view/:id', (req, res) => {
+  lists.getMembersOfList(req.params.id)
+  .then((results) => {
+      res.render('lists/view', {
+        title: results[0].list_desc,
+        results: results
+      })
+  })
+});
 
 router.get('/edit/:id', (req, res) => res.render('lists/edit'));
 

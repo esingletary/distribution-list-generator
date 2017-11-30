@@ -5,7 +5,7 @@ exports.addList = function(newList) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`INSERT INTO custom_list(list_desc, list_owner) VALUES(?, ?)`, [newList.desc, newList.personId])
     .then((results) => {
-        return resolve(result);
+        return resolve(results);
       })
     .catch((err) => {
       return reject(err);
@@ -19,8 +19,8 @@ exports.deleteList = function(listId) {
     database.execQueryWithParams(`DELETE FROM person_list WHERE list_id = ?)`, listId)
     .then((results) => {
       database.execQueryWithParams(`DELETE FROM custom_list WHERE list_id = ?`, listId)
-      .then((result) => {
-        return resolve(result);
+      .then((results) => {
+        return resolve(results);
       })
     })
     .catch((err) => {
@@ -55,7 +55,7 @@ exports.addToList = function(personId, listId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`INSERT INTO person_list(person_id, list_id) VALUES(?, ?)`, [personId, listId])
     .then((results) => {
-        return resolve(result);
+        return resolve(results);
       })
     .catch((err) => {
       return reject(err);
@@ -68,7 +68,7 @@ exports.deleteFromList = function(personId, listId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`DELETE FROM person_list WHERE person_id = ? AND list_id = ?`, [personId, listId])
     .then((results) => {
-        return resolve(result);
+        return resolve(results);
       })
     .catch((err) => {
       return reject(err);
@@ -80,13 +80,14 @@ exports.deleteFromList = function(personId, listId) {
 exports.getMembersOfList = function(listId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`
-      SELECT id, first_name, middle_name, last_name, email_address
+      SELECT custom_list.list_desc, id, first_name, middle_name, last_name, email_address
       FROM person_list
       JOIN person ON person_list.person_id = person.id
-      WHERE list_id = ?
+      JOIN custom_list ON person_list.list_id = custom_list.list_id
+      WHERE person_list.list_id = ?
     `, listId)
     .then((results) => {
-        return resolve(result);
+        return resolve(results);
       })
     .catch((err) => {
       return reject(err);
