@@ -1,5 +1,6 @@
 const database = require('../config/database');
 
+// Get a single note
 exports.getNote = function(noteId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`
@@ -17,6 +18,7 @@ exports.getNote = function(noteId) {
   })
 }
 
+// Get all of the notes for one person
 exports.getAllNotes = function(personId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`
@@ -39,6 +41,7 @@ exports.getAllNotes = function(personId) {
   })
 }
 
+// Get all of the people whom have notes about them
 exports.getNoted = function() {
   return new Promise((resolve, reject) => {
     database.execQuery(`
@@ -56,6 +59,7 @@ exports.getNoted = function() {
   })
 }
 
+// Add a new note
 exports.addNote = function(newNote) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams('INSERT INTO note(note_title, note) VALUES(?, ?)', [newNote.title, newNote.note])
@@ -71,6 +75,7 @@ exports.addNote = function(newNote) {
   })
 }
 
+// Edit a previous note
 exports.editNote = function(editedNote) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`
@@ -86,6 +91,7 @@ exports.editNote = function(editedNote) {
   })
 }
 
+// Delete a note
 exports.deleteNote = function(noteId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`DELETE FROM person_notes WHERE notes_id = ?`, noteId)
