@@ -48,7 +48,7 @@ router.post('/add', (req, res) => {
   notes.addNote(newNote)
   .then((result) => console.log(`Query successful: ${result.affectedRows} row(s) were affected. `))
   .catch((err) => console.log(err));
-  res.redirect(`/notes/view/${newNote.personId}`);
+  setTimeout(() => res.redirect(`/notes/view/${newNote.personId}`), 250);
 });
 
 // Edit a note

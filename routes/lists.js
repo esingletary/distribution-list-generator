@@ -37,7 +37,7 @@ router.post('/add', (req, res) => {
     })
     Promise.all(membersArray)
     .then(() => {
-      res.redirect(`/lists/view/${listId}`);
+      setTimeout(() => res.redirect(`/lists/view/${listId}`), 250);
     })
   })
   .catch((err) => {

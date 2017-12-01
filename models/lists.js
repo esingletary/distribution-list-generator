@@ -5,8 +5,8 @@ exports.addList = function(newList) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`INSERT INTO custom_list(list_desc, list_owner) VALUES(?, ?)`, [newList.desc, newList.personId])
     .then((results) => {
-        return resolve(results);
-      })
+      return resolve(results);
+    })
     .catch((err) => {
       return reject(err);
     })
@@ -33,13 +33,13 @@ exports.deleteList = function(listId) {
 exports.getLists = function() {
   return new Promise((resolve, reject) => {
     database.execQuery(`
-      SELECT custom_list.list_id, list_desc,
-        CONCAT(first_name, " ", middle_name, " ", last_name) AS 'owner',
-        COUNT(person_id) AS 'member_count'
-      FROM custom_list
-      JOIN person_list ON custom_list.list_id = person_list.list_id
-      JOIN person ON custom_list.list_owner = person.id
-      GROUP BY person_list.list_id
+    SELECT custom_list.list_id, list_desc,
+    CONCAT(first_name, " ", middle_name, " ", last_name) AS 'owner',
+      COUNT(person_list.person_id) AS 'member_count'
+    FROM custom_list
+    LEFT JOIN person_list ON custom_list.list_id = person_list.list_id
+    JOIN person ON custom_list.list_owner = person.id
+    GROUP BY custom_list.list_id
     `)
     .then((results) => {
       return resolve(results);
@@ -54,14 +54,13 @@ exports.getLists = function() {
 exports.getListDetails = function(listId) {
   return new Promise((resolve, reject) => {
     database.execQueryWithParams(`
-      SELECT custom_list.list_id AS list_id, list_desc, list_owner, person_id
+      SELECT custom_list.list_id AS list_id, list_desc, list_owner
       FROM custom_list
-      JOIN person_list ON custom_list.list_id = person_list.list_id
       WHERE custom_list.list_id = ?
     `, listId)
     .then((results) => {
-        return resolve(results);
-      })
+      return resolve(results);
+    })
     .catch((err) => {
       return reject(err);
     })
@@ -75,8 +74,8 @@ exports.editListDetails = function(listId, listName) {
       WHERE list_id = ?
     `, [listName, listId])
     .then((results) => {
-        return resolve(results);
-      })
+      return resolve(results);
+    })
     .catch((err) => {
       return reject(err);
     })
@@ -86,10 +85,10 @@ exports.editListDetails = function(listId, listName) {
 // Add a person to a specified custom list
 exports.addToList = function(personId, listId) {
   return new Promise((resolve, reject) => {
-    database.execQueryWithParams(`INSERT INTO person_list(person_id, list_id) VALUES(?, ?)`, [personId, listId])
+    database.execQueryWithParams(`INSERT IGNORE INTO person_list(person_id, list_id) VALUES(?, ?)`, [personId, listId])
     .then((results) => {
         return resolve(results);
-      })
+    })
     .catch((err) => {
       return reject(err);
     })
@@ -102,7 +101,7 @@ exports.deleteFromList = function(personId, listId) {
     database.execQueryWithParams(`DELETE FROM person_list WHERE person_id = ? AND list_id = ?`, [personId, listId])
     .then((results) => {
         return resolve(results);
-      })
+    })
     .catch((err) => {
       return reject(err);
     })
@@ -120,8 +119,18 @@ exports.getMembersOfList = function(listId) {
       WHERE person_list.list_id = ?
     `, listId)
     .then((results) => {
+      if (results[0] == null) {
+        database.execQueryWithParams(`SELECT list_desc FROM custom_list WHERE list_id = ?`, listId)
+        .then((results) => {
+          return resolve(results);
+        })
+        .catch((err) => {
+          return reject(err);
+        })
+      } else {
         return resolve(results);
-      })
+      }
+    })
     .catch((err) => {
       return reject(err);
     })

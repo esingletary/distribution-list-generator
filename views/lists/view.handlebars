@@ -1,10 +1,12 @@
 <h1>{{title}}</h1>
-<a href="/lists" class="btn btn-primary mb-2">Back</a>
-<a href="/lists/edit/{{list_id}}" class="btn btn-primary mb-2">Edit Name</a>
-<form action="/lists/delete/{{list_id}}?_method=DELETE" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <button type="submit" class="btn btn-danger mb-2">Delete List</button>
-</form>
+<div class="d-flex">
+  <a href="/lists" class="btn btn-primary mb-2 mr-2">Back</a>
+  <a href="/lists/edit/{{list_id}}" class="btn btn-primary mb-2 mr-2">Edit</a>
+  <form action="/lists/delete/{{list_id}}?_method=DELETE" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" class="btn btn-danger mb-2">Delete</button>
+  </form>
+</div>
 <table class="table">
   <tbody>
     <thead>
@@ -14,6 +16,7 @@
       <th>Actions</th>
     </thead>
     {{#each results}}
+      {{#if id}}
       <tr>
         <td>{{id}}</td>
         <td>{{first_name}} {{middle_name}} {{last_name}}</td>
@@ -25,6 +28,7 @@
           </form>
         </td>
       </tr>
+      {{/if}}
     {{else}}
     {{/each}}
   </tbody>
@@ -32,7 +36,7 @@
 <form action="/lists/view/{{list_id}}" method="post">
   <div class="form-group">
     <label for="listMembers">Add new member</label>
-    <input type="text" class="form-control" name="listMembers">
+    <input type="text" class="form-control" name="listMembers" required>
     <small id="listMembersHelp" class="form-text text-muted">Comma separated IDs please</small>
   </div>
   <button type="submit" class="btn btn-primary mb-3">Add</button>
