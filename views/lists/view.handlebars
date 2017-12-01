@@ -1,13 +1,8 @@
 <h1>{{title}}</h1>
 <div class="d-flex">
   <a href="/lists" class="btn btn-primary mb-2 mr-2">Back</a>
-  <a href="/lists/edit/{{list_id}}" class="btn btn-primary mb-2 mr-2">Edit</a>
-  <form action="/lists/delete/{{list_id}}?_method=DELETE" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" class="btn btn-danger mb-2">Delete</button>
-  </form>
 </div>
-<table class="table">
+<table class="table table-bordered">
   <tbody>
     <thead>
       <th>ID</th>
@@ -18,26 +13,24 @@
     {{#each results}}
       {{#if id}}
       <tr>
-        <td>{{id}}</td>
-        <td>{{first_name}} {{middle_name}} {{last_name}}</td>
-        <td>{{email_address}}</td>
+        <td style="vertical-align: middle">{{id}}</td>
+        <td style="vertical-align: middle">{{first_name}} {{middle_name}} {{last_name}}</td>
+        <td style="vertical-align: middle">{{email_address}}</td>
         <td>
-          <form action="/lists/delete/{{../list_id}}/{{id}}?_method=DELETE" method="post">
+          <form action="/lists/delete/{{../list_id}}/{{id}}?_method=DELETE" class="text-center" method="post">
             <input type="hidden" name="_method" value="DELETE">
-            <button type="submit" class="btn btn-danger mb-2">Delete</button>
+            <button type="submit" class="btn btn-danger mb-2 btn-sm">Delete</button>
           </form>
         </td>
       </tr>
       {{/if}}
-    {{else}}
     {{/each}}
   </tbody>
 </table>
-<form action="/lists/view/{{list_id}}" method="post">
+<form action="/lists/view/{{list_id}}" class="form-inline" method="post">
   <div class="form-group">
-    <label for="listMembers">Add new member</label>
-    <input type="text" class="form-control" name="listMembers" required>
-    <small id="listMembersHelp" class="form-text text-muted">Comma separated IDs please</small>
+    <input type="text" class="form-control mr-2" name="listMembers" placeholder="Person ID(s)" required>
+    {{!-- <small id="listMembersHelp" class="form-text text-muted">Comma separated IDs please</small> --}}
   </div>
-  <button type="submit" class="btn btn-primary mb-3">Add</button>
+  <button type="submit" class="btn btn-primary">Add</button>
 </form>
