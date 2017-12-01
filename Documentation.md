@@ -7,10 +7,13 @@ Welcome to the Distribution List Generator. The goal of this application is to v
 * Notes
 
 ## Basic use
-Basic use of the program involves navigating to the webpage, and then clicking either Reports or Notes on the main page.
+Basic use of the program involves navigating to the webpage, and then clicking either `Reports`, `Custom Lists`, or `Notes` on the main page.
 
 ## Reports
 Clicking reports brings you to a selection menu of 6 different reports. Each of them should have a helpful description that tells you what the report does. Some reports have a select menu for relevant parameters, feel free to use this to narrow your report down.
+
+## Custom lists
+Clicking custom lists brings you to a menu of lists that currently exist on the system. You can click `Add List` to create your own. In this form you fill out the List Name and can optionally pre-load it with IDs of people. Back at the menu, clicking into a list allows you to delete individual entries, the entire list, edit the list name, or add people to it.
 
 ## Notes
 Clicking notes brings you to a page that has a table that shows current people who have notes about them. If the table is blank, it means there aren't any notes yet entered in the system. If you want to add a new note, click `New Note` at the top and it should bring you to an easy-to-use form. 

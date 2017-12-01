@@ -84,7 +84,6 @@ insert into student_clubs(person_id, club_id) VALUES(53, 1);
 insert into student_clubs(person_id, club_id) VALUES(56, 1);
 insert into student_clubs(person_id, club_id) VALUES(58, 1);
 insert into student_clubs(person_id, club_id) VALUES(59, 1);
-insert into student_clubs(person_id, club_id) VALUES(60, 1);
 insert into student_clubs(person_id, club_id) VALUES(61, 1);
 insert into student_clubs(person_id, club_id) VALUES(62, 1);
 insert into student_clubs(person_id, club_id) VALUES(63, 1);
