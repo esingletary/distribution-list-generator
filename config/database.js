@@ -12,7 +12,7 @@ exports.execQueryWithParams = function(query, values) {
         }
         return resolve(results);
       })
-      if (error) {
+      if (err) {
         return reject(error);
       }
       connection.release();
@@ -29,7 +29,7 @@ exports.execQuery = function(query) {
         }
         return resolve(results);
       })
-      if (error) {
+      if (err) {
         return reject(error);
       }
       connection.release();
