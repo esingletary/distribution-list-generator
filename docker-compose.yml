@@ -7,6 +7,6 @@ services:
     depends_on:
     - dlg-db
     environment:
-    - DATABASE_HOST=dlg-db
+    - MYSQL_HOST=dlg-db
   dlg-db:
     build: ./sql
