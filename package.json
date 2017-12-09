@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "The implementation of the DLG as specified in the project",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esingletary/distribution-list-generator.git"
+  },
   "scripts": {
     "start": "node app"
   },
