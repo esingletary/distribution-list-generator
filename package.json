@@ -4,7 +4,7 @@
   "description": "The implementation of the DLG as specified in the project",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app"
   },
   "author": "Emmanuel Singletary",
   "license": "MIT",

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  dlg:
+    build: .
+    ports:
+    - "5000:5000"
+    depends_on:
+    - dlg-db
+    environment:
+    - DATABASE_HOST=dlg-db
+  dlg-db:
+    build: ./sql

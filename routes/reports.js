@@ -12,29 +12,29 @@ router.post('/students', (req, res) => {
 
   switch(param) {
     case '*':
-      query = `SELECT * FROM person WHERE type = 'STU' ORDER BY last_name ASC`;
+      query = `SELECT id, first_name, middle_name, last_name, email_address FROM person WHERE type = 'STU' ORDER BY last_name ASC`;
       title = 'All students';
     break;
     case 'freshmen':
-      query = `SELECT person.* FROM person
+      query = `SELECT person.id, person.first_name, person.middle_name, person.last_name, person.email_address FROM person
       JOIN student_acad_programs ON person.id = student_acad_programs.student_id
       WHERE type = 'STU' AND credits_earned < 30 ORDER BY last_name ASC`;
       title = 'Freshmen';
     break;
     case 'sophomores':
-      query = `SELECT person.* FROM person
+      query = `SELECT person.id, person.first_name, person.middle_name, person.last_name, person.email_address FROM person
       JOIN student_acad_programs ON person.id = student_acad_programs.student_id
       WHERE type = 'STU' AND credits_earned >= 30 AND credits_earned < 60 ORDER BY last_name ASC`;
       title = 'Sophomores';
     break;
     case 'juniors':
-    query = `SELECT person.* FROM person
+    query = `SELECT person.id, person.first_name, person.middle_name, person.last_name, person.email_address FROM person
       JOIN student_acad_programs ON person.id = student_acad_programs.student_id
       WHERE type = 'STU' AND credits_earned >= 60 AND credits_earned < 90 ORDER BY last_name ASC`;
       title = 'Juniors';
     break;
     case 'seniors':
-    query = `SELECT person.* FROM person
+    query = `SELECT person.id, person.first_name, person.middle_name, person.last_name, person.email_address FROM person
       JOIN student_acad_programs ON person.id = student_acad_programs.student_id
       WHERE type = 'STU' AND credits_earned >= 90 ORDER BY last_name ASC`;
       title = 'Seniors';
@@ -61,7 +61,7 @@ router.post('/students', (req, res) => {
 
 // Staff Report
 router.get('/staff', (req, res) => {
-  database.execQuery(`SELECT * FROM person WHERE type = 'STA'`)
+  database.execQuery(`SELECT id, first_name, middle_name, last_name, email_address FROM person WHERE type = 'STA'`)
   .then((results) => {
     res.render('reports/staff',{
       title: 'Staff',
@@ -77,7 +77,7 @@ router.get('/staff', (req, res) => {
 
 // Faculty Report
 router.get('/faculty', (req, res) => {
-  database.execQuery(`SELECT * FROM person WHERE type = 'FAC'`)
+  database.execQuery(`SELECT id, first_name, middle_name, last_name, email_address FROM person WHERE type = 'FAC'`)
   .then((results) => {
     res.render('reports/faculty',{
       title: 'Faculty',
