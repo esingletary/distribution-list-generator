@@ -1,5 +1,5 @@
 {
-  "name": "dlg-implementation",
+  "name": "distribution-list-generator",
   "version": "1.0.0",
   "description": "The implementation of the DLG as specified in the project",
   "main": "app.js",
